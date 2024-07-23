@@ -4,13 +4,15 @@ namespace App\Entity;
 
 use App\Repository\IngredientRepository;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Mime\Message;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: IngredientRepository::class)]
-#[UniqueEntity(fields:['name', 'slug'], message: 'this name is already used')]
+#[UniqueEntity(fields: ['name', 'slug'], message: 'this name is already used')]
 #[ORM\HasLifecycleCallbacks]
 class Ingredient
 {
